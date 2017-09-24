@@ -1,0 +1,29 @@
+# Eclipse
+.project
+.metadata
+.classpath
+*.tmp
+.settings/
+
+# Intellij
+.idea/
+*.iws
+*.ipr
+*.ids
+*.orig
+*.iml
+
+# VSCode
+.vscode/
+
+# Gradle
+.gradle
+build/
+out/
+!gradle-wrapper.jar
+
+# Dirs
+bin/
+
+# Logs
+*.log
