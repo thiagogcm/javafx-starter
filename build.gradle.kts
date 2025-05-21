@@ -1,11 +1,9 @@
 buildscript {
     repositories {
-        jcenter()
         mavenCentral()
-        maven("https://repo.spring.io/milestone")
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M4")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.4.5")
     }
 }
 
@@ -20,9 +18,7 @@ apply {
 }
 
 repositories {
-    jcenter()
     mavenCentral()
-    maven("https://repo.spring.io/milestone")
 }
 
 checkstyle {
@@ -31,32 +27,32 @@ checkstyle {
 
 dependencies {
     // Rx
-    implementation("io.reactivex.rxjava2:rxjava:2.1.3")
-    implementation("io.reactivex.rxjava2:rxjavafx:2.2.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.8")
+    implementation("io.reactivex.rxjava3:rxjavafx:2.11.0-RC36")
 
     // Spring Boot libraries
-    implementation("org.springframework.boot:spring-boot-starter") {
+    implementation("org.springframework.boot:spring-boot-starter:3.4.5") {
         exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
     }
-    implementation("org.springframework.boot:spring-boot-starter-log4j2")
-    runtime("org.springframework.boot:spring-boot-devtools")
+    implementation("org.springframework.boot:spring-boot-starter-log4j2:3.4.5")
+    runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
     // Testing
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.testfx:testfx-core:4.0.+")
-    testImplementation("org.testfx:testfx-junit5:4.0.+")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.5")
+    testImplementation("org.testfx:testfx-core:4.0.18")
+    testImplementation("org.testfx:testfx-junit5:4.0.18")
 }
 
 java {
     group = "io.github.thiagogcm.javafxstarter"
     version = "1.0"
 
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_17
+        targetCompatibility = JavaVersion.VERSION_1_17
 }
 
 tasks {
     "wrapper"(Wrapper::class) {
-        gradleVersion = "4.2"
+        gradleVersion = "8.14"
     }
 }
